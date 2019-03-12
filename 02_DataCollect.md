@@ -16,6 +16,11 @@ https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/
 Start with source on github and modify for Arm images instead of AMD. See
 ```docker-statsd-influxdb-grafana/Dockerfile``` for details.
 
+git clone -o tig https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana.git tig
+
+edit tig/Dockerfile, change amd64 to armhf.
+
+
 We want the collected sensor data to hang around even if we stop the instance from running. The best way to do this is use the Docker Volume storage service.
 
 #### Add SD Card for storing Influx Database
