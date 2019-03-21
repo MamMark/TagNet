@@ -272,7 +272,26 @@ jupyter nbextension enable --py gmaps
 su pi -c "nohup nice --adjustment=-20 jupyter notebook --browser=false --allow-root --port=9000 --notebook-dir /home/pi/Desktop/TagNet&"
 ```
 
-## Shared Development Folder (Optional)
+## Shared Development Folders (Optional)
+### Workstation (upstairs) sharing the basestation file system.
+
+we use sshfs to mount the basestation file system on the more capable host.
+
+1) Install sshfs
+```
+sudo apt-get install sshfs
+```
+
+2) Mount the base station file system.
+
+In this case we are mounting the home directory of ```dvt3```.
+```
+sudo mkdir /mnt/dvt3
+sudo sshfs -o allow_other pi@dvt3:. /mnt/dvt3
+```
+
+### Basestation sharing workstation file system.
+
 Mount a Network Shared Folder for Source Code access on user workstation.
 
 ##### First Time
