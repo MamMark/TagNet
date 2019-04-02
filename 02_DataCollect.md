@@ -38,22 +38,26 @@ sudo fdisk /dev/sda
 # 't' then '83' to change the partition type to linux, then 'w' to save.
 sudo mkfs.ext4 -m 0 -L tagstore /dev/sda1
 ```
-Create the location where we will mount the SD Card filesystem.
-```
-sudo mkdir /mnt/sdcard
-sudo chown -c pi:devgrp /mnt/sdcard
-chmod 775 /mnt/sdcard
-```
-Add this line to ```/etc/fstab``` to automatically mount the ```/mnt/sdcard``` filesystem on system boot.
+
+Add this line to ```/etc/fstab``` to automatically mount the ```/mnt/sdcard```
+filesystem on system boot.
 ```
 /dev/sda1      /mnt/sdcard      ext4      rw,suid,dev,noexec,auto,user,async      0  0
 ```
-To start it manually, use:
+
+Create the location where we will mount the SD Card filesystem.
+```
+sudo mkdir /mnt/sdcard
+mount /mnt/sdcard
+```
+
+To mount manually, use:
 ```
 sudo mount -a
 ```
 
 #### Create persistent Docker Volume on SD Card
+#### Note: docker volume doesn't persist across reboots
 ```
 mkdir /mnt/sdcard/influxdatabase
 sudo ln -s /mnt/sdcard/influxdatabase /var/lib/docker/volumes/influxdatabase
