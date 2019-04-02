@@ -105,13 +105,11 @@ docker stop docker-statsd-influxdb-grafana
 docker start docker-statsd-influxdb-grafana
 ```
 
-#### login to the docker instance:
-```
-ssh root@localhost -p 22022
-```
-Password: ```root```
-
 #### Make ssh tunnels for remote access:
+#### execute on laptop with reasonable resources
+
+```dvt6.local is the name of the base station```
+
 ```
 ssh -N -f -L localhost:8086:localhost:8086 pi@dvt6.local -o ServerAliveInterval=30
 ssh -N -f -L localhost:3003:localhost:3003 pi@dvt6.local -o ServerAliveInterval=30
@@ -127,10 +125,14 @@ Host        Container        Service
 8086        8086            influxdb
 8125        8125            statsd
 22022        22        sshd
-SSH
-ssh root@localhost -p 22022
-Password: root
 ```
+
+#### To login to the docker instance:
+```
+ssh root@localhost -p 22022
+```
+Password: ```root```
+
 
 #### Grafana
 ```
