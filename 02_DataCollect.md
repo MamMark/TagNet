@@ -8,20 +8,26 @@ sudo usermod -aG docker `whoami`
 ```
 Remember to restart your terminal session to activate the new group.
 
-## Install TIG Suite (Telegraf-InfluxDB-Grafana)
+## Install a local copy of influxdb on the base station
+```
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt-get update
+sudo apt-get install influxdb
+```
 
-### from https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana
-https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/
+## Install Docker based TIG Suite (Telegraf-InfluxDB-Grafana)
+#### clone https://github.com/cire831/docker-statsd-influxdb-grafana.git
+#### default branch mm_integration is current.
+```
+git clone -o tig https://github.com/cire831/docker-statsd-influxdb-grafana tig
+cd  tig
+```
 
-Start with source on github and modify for Arm images instead of AMD. See
-```docker-statsd-influxdb-grafana/Dockerfile``` for details.
+### Persistent Sensor Data
 
-git clone -o tig https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana.git tig
-
-edit tig/Dockerfile, change amd64 to armhf.
-
-
-We want the collected sensor data to hang around even if we stop the instance from running. The best way to do this is use the Docker Volume storage service.
+We want the collected sensor data to hang around even if we stop the instance
+from running. The best way to do this is use the Docker Volume storage service.
 
 #### Add SD Card for storing Influx Database
 Format the SD Card.
