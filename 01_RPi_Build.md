@@ -222,6 +222,8 @@ cd tools/utils/tagcore
 sudo python setup.py install
 cd ../tagdump
 sudo python setup.py install
+cd ../tagctl
+sudo python setup.py install
 ```
 
 
