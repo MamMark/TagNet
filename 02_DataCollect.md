@@ -105,18 +105,15 @@ docker stop docker-statsd-influxdb-grafana
 docker start docker-statsd-influxdb-grafana
 ```
 
-#### Make ssh tunnels for remote access:
+#### Expose the base station influxdb via ssh tunnel
 #### execute on laptop with reasonable resources
-
-```dvt6.local is the name of the base station```
+```dvt6.local``` is the name of the base station
 
 ```
 ssh -N -f -L localhost:8086:localhost:8086 pi@dvt6.local -o ServerAliveInterval=30
-ssh -N -f -L localhost:3003:localhost:3003 pi@dvt6.local -o ServerAliveInterval=30
-ssh -N -f -L localhost:3004:localhost:3004 pi@dvt6.local -o ServerAliveInterval=30
 ```
 
-#### Mapped Ports
+#### Docker exposed Ports
 ```
 Host        Container        Service
 
