@@ -132,17 +132,18 @@ Password: ```root```
 
 
 #### Grafana
+The grafana server port (3000) depens on the grafana version installed.  This
+port can be changed via configuration file.
 ```
-Open http://localhost:3003
-
+Open http://localhost:3000
 Username: root
 Password: root
 ```
 Add data source on Grafana
 Using the wizard click on Add data source
-- Choose a name for the source and flag it as Default
+- Set name to '''telegraph''', flag it as Default
 - Choose InfluxDB as type
-- Choose direct as access
+- leave ```Access``` set to Server (default)
 - Fill remaining fields as follows and click on Add without altering other fields
 ```
 Url: http://localhost:8086
@@ -152,17 +153,20 @@ Password:    telegraf
 ```
 Basic auth and credentials must be left unflagged. Proxy is not required.
 
-Now you are ready to add your first dashboard and launch some query on database.
+#### InfluxDB (test database)
 
-#### InfluxDB
+Add data source, name ```test```
+set up same as ```telegraf``` above, with changes below.
+
 ```
-Web Interface
-Open http://localhost:3004
-
+Url: http://localhost:8086
+Database: test
 Username: root
 Password: root
-Port: 8086
 ```
+
+Now you are ready to add your first dashboard and launch some queries on database.
+
 
 #### InfluxDB Shell (CLI)
 - Establish a ssh connection with the container
