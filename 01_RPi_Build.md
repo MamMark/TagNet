@@ -192,13 +192,13 @@ sudo pip install chest
 ```
 
 ## Install source, TagNet and Tag tools
-Replace ```danome``` with ```MamMark``` and ```dm_working``` with ?.
+Replace ```danome``` with ```MamMark``` and ```dm_working``` with cire_working.
 ```
 mkdir ~/tag
 cd ~/tag
 git clone https://github.com/cire831/TagNet.git
 cd TagNet
-git branch checkout dm_working
+git branch checkout cire_working
 cd ~/tag
 git clone https://github.com/cire831/mm.git
 cd mm
