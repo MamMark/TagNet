@@ -84,13 +84,19 @@ The easiest way to find out which Tags this Basestation knows about is to look i
 ls -al ~/tags
 1a346563dc43    1dc58a235bd0      ffffffffffff
 ```
-To discover new Tags a special directory named ```.poll``` is provided to iniatate the Tag polling sequence. This sequence is designed to wake up Tags that are dormant but may be waiting to communicate with the Basestation.
+To discover new Tags a special directory, ```.poll```, is provided which iniatates the polling sequence.  This sequence is designed to wake up
+Tags that are dormant but wish to communicate with the Basestation.
 
-To initiate a poll for Tags, do the following:
+The directory ```.poll``` contains two subdirectories, ```known``` and ```new```.  ```Known``` contains node ids for tags that have already responded
+to a previous poll.   ```New``` will be populated with any new node ids found during the current polling cycle.
+Polling will be terminated when a new node is found that is not already in the ```known``` directory.  Its node id will
+be populated in ```new```.
+
+The following will initiate a new polling cycle:
 ```
-ls ~/tags/.poll
+touch -d 'now+5min' .poll/new
 ```
-This will take some time to complete since the Tags are in power saving mode and are a bit drowsy and non-responsive.
+This will take some time to complete since the Tags are in power saving mode and are a bit drowsy and non-responsive.  The poll cycle will either timeout or will finish when a new node is found (not in ```known```).
 
 ## Examining Sensor data
 ## Reading and Writing SD Card Storage
