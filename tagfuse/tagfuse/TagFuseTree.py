@@ -135,6 +135,8 @@ def TagFuseSDTree(radio):
             ]))),
             ('dblk',  DirHandler(OrderedDict([
                 ('',     FileHandler(S_IFDIR, 0o751, 12)),
+                ('.boot_recnum',ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
+                ('.boot_offset',ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
                 ('byte',    SparseIOFileHandler(radio, S_IFREG, 0o444, 1)),
                 ('note',    SimpleIORecHandler (radio, S_IFREG, 0o660, 1)),
                 ('.recnum',   ByteIOFileHandler(radio, S_IFREG, 0o664, 1)),
