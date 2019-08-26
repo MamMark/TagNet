@@ -141,8 +141,6 @@ def TagFuseSDTree(radio):
                 ('.last_rec', ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
                 ('.last_sync',ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
                 ('.committed',ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
-                ('.offset',   ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
-                ('.size',     ByteIOFileHandler(radio, S_IFREG, 0o444, 1)),
                 ('.resync',   ByteIOFileHandler(radio, S_IFREG, 0o664, 1)),
                 ('filter',  DirHandler(OrderedDict([
                     ('',     FileHandler(S_IFDIR, 0o751, 2)),
