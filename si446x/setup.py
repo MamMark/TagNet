@@ -39,7 +39,7 @@ setup(
     author_email     = 'dmaltbie@daloma.org',
     install_requires = ['future',
                         'machinist',
-                        'twisted==13.1.0',
+                        'twisted==19.7.0',
                         'six',
                         'construct==2.5.2',
                         'txdbus==1.1.0',
