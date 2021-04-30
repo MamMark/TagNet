@@ -28,7 +28,7 @@ setup(
     url              = 'https://github.com/dmaltbie/Tagnet/tagfuse',
     author           = 'Dan Maltbie',
     author_email     = 'dmaltbie@daloma.org',
-    install_requires = ['twisted==13.1.0',
+    install_requires = ['twisted==20.3.0',
                         'six',
                         'chest',
                         'construct==2.5.2',
