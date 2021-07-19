@@ -1,0 +1,73 @@
+
+See 00_Install for installation instructions.
+
+1) Connect a Base Station to wifi network.
+   (previously not connected to this network)
+
+   o plug the base station in and power it up.
+   o look for the local wifi network 'comitup-<nnnn>'
+   o connect to this network.
+   o browse to 'http://comitup-nnnn.local
+   o select an available wifi net and click 'connect'.
+
+
+2) Render MD (markdown) files (Grip)
+
+  pip  install grip   (python systems)
+  brew install grip   (Mac OS X)
+
+  from github:
+    git clone https://github.com/MamMark/grip.git
+    cd grip
+    sudo python setup.py install
+
+
+  Using grip:
+
+    grip <markdownfile>
+    grip --pass=<token> <markdownfile>
+    * Running on http://localhost:6419/ (Press CTRL+C to quit)
+
+    point a browser at http://localhost:6419/ to see your rendered doc.
+
+  - you may run into the API rate limit in which case you should
+    use a github personal access token.  You need a github login.
+
+  see https://github.com/MamMark/grip#access
+  see github, Settings->Developer settings->Personal access tokens
+      https://github.com/settings/tokens/new?scopes=
+
+
+3) Remote mounting file systems.
+
+   sshfs is used to perform the mount via a ssh tunnel.  One should set up ssh keys
+   and an authorized user prior to mounting.  This will greatly simplify operation.
+
+   rmt is the remote host whose file system we want to mount
+   rmt user: xyz
+
+
+   Linux -> Linux:
+
+     sudo apt-get install sshfs
+     sudo mkdir /mnt/rmt/<dir>
+     sudo sshfs -o allow_other xyz@rmt:<remote_dir> /mnt/rmt/<dir>
+
+
+   Linux -> MacOS:
+
+   Filesystems on MacOS are typically case-insensitive.  ie. a file named Abcd
+   is the same file as abcd.  Just be aware.
+
+   See https://osxfuse.github.io and https://github.com/osxfuse/osxfuse/wiki/SSHFS
+
+   Mac OS installation via packages.
+
+   Download and install: https://github.com/osxfuse/osxfuse/releases/download/macfuse-4.1.2/macfuse-4.1.2.dmg
+   Download and install: https://github.com/osxfuse/sshfs/releases/download/osxfuse-sshfs-2.5.0/sshfs-2.5.0.pkg
+
+
+   Mounting remote filesystem with sshfs
+
+     mkdir -p /mnt/rmt/<dir>
+     sudo sshfs xyz@rmt:<remote_dir> /mnt/rmt/<dir>
