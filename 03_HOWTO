@@ -56,18 +56,37 @@ See 00_Install for installation instructions.
 
    Linux -> MacOS:
 
-   Filesystems on MacOS are typically case-insensitive.  ie. a file named Abcd
-   is the same file as abcd.  Just be aware.
+   Mac OS installation:
 
-   See https://osxfuse.github.io and https://github.com/osxfuse/osxfuse/wiki/SSHFS
+   Download and install:
+     https://github.com/osxfuse/osxfuse/releases/download/macfuse-4.1.2/macfuse-4.1.2.dmg
+     https://github.com/osxfuse/sshfs/releases/download/osxfuse-sshfs-2.5.0/sshfs-2.5.0.pkg
 
-   Mac OS installation via packages.
 
-   Download and install: https://github.com/osxfuse/osxfuse/releases/download/macfuse-4.1.2/macfuse-4.1.2.dmg
-   Download and install: https://github.com/osxfuse/sshfs/releases/download/osxfuse-sshfs-2.5.0/sshfs-2.5.0.pkg
-
+   Due to permission problems, the easist way to do a remote mount is into
+   a filesystem that you have write permission for.
 
    Mounting remote filesystem with sshfs
 
-     mkdir -p /mnt/rmt/<dir>
-     sudo sshfs xyz@rmt:<remote_dir> /mnt/rmt/<dir>
+     chdir ~
+     mkdir -p rmt/<dir>
+     sshfs xyz@rmt:<remote_dir> rmt/<dir>
+
+   for example, remote machine zot, directory tag, mounted to ~/zot/tag on local machine.
+
+     chdir ~
+     mkdir -p zot/tag
+     sshfs zot.lan:tag zot/tag
+
+   Note: sshfs on the Mac OS is implemented as a FUSE, file system in user
+     space.  It also is doing all transfers from the remote filesystem across
+     an encrypted SSH tunnel.  As such it can be quite slow.
+
+     Additionally, the mount on Mac OS X can become stuck or unresponsive.  You can force
+     an unmount via:
+
+        diskutil umount force rmt/<dir>
+
+   References:
+     https://osxfuse.github.io
+     https://github.com/osxfuse/osxfuse/wiki/SSHFS
