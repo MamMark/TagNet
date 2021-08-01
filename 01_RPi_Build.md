@@ -1,3 +1,6 @@
+
+----
+
 # Introduction
 
 A TagNet base station (TBS) is hosted on a Raspberry Pi running the ComitUp
@@ -60,7 +63,7 @@ Installation requires the following:
   * SD: 32GB or larger SD class 10 card
   * Internet: WiFi or hardwired ethernet.
   * BalenaEtcher: software for writing image.   https://www.balena.io/etcher/
-
+  * Raspberry Pi 3+, 4B.
 
 Note, make sure to use https://www.balena.io/etcher/, and not www.etcher.net which provides a bogus
 version of Etcher which doesn't work correctly.
@@ -88,8 +91,7 @@ flash the image using Etcher
   * select the file downloaded above.
   * select the flash drive where you inserted the SD.
 
-    > _it is very important that you select the correct drive._
-    >
+    > _It is **VERY** important that you select the correct drive._
     > _**ANY** previous contents  will be erased._
 
   * click Flash.
@@ -128,8 +130,8 @@ network name and its password.  Click _Connect_.
 ### Initial Login
 
 The RPi initial hostname is ```comitup-<nnn>``` where ```nnn``` is the
-same number as above.  You can connect via ssh using the user name ```pi``` with
-the password ```raspberry```.
+same number as above.  You can connect via ssh using the user name ```pi```,
+password ```raspberry```.
 
 > _the default password is ```raspberry``` and is well known.  This is a
 > huge security hole and one of the first things you should change._
@@ -160,7 +162,7 @@ the password ```raspberry```.
     pi@comitup-596:~ $
 ```
 
-#### Modifying Basic Configuration
+### Modifying Basic Configuration
 
 The initial configuration needs to be modified.  Headless instances need to be modified via the
 command line.  RPiOS provides a text based GUI to make these modifications.
@@ -212,7 +214,7 @@ configured.
 
 -------------------------------------------------------------------------------------------------
 
-#### Install Additional Core Software
+### Install Additional Core Software
 ``` bash
     sudo apt install               \
         git gitk ntp dnsutils      \
@@ -271,7 +273,9 @@ configured.
 
 ----------------
 
-### Log back into the RPi being built.
+### Additional Packages
+
+Log back into the RPi being built.
 ```
     ssh -AX dvt4
 ```
@@ -301,7 +305,7 @@ has completed, execute:
     M-x package-install RET magit RET
 
 
-## Install Required Python Packages
+#### Install Python Packages
 These packages are required by TagNet BaseStation applications.
 ```
     cd ~/tag
@@ -337,7 +341,7 @@ Work in progress can be found at the following repositories/branches:
     git checkout -t cire/cire_working
 ```
 
-## Install TagNet and Tag Tools
+#### Install TagNet and Tag Tools
 ``` bash
     cd ~/tag/TagNet
     for d in si446x tagnet tagfuse; do
