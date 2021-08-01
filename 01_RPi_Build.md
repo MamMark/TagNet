@@ -1,7 +1,30 @@
 
 ----
 
-# Introduction
+## Index
+- [Introduction](#introduction)
+  - [ComitUp Overview](#comitup-overview)
+  - [Installation Requirements](#installation-requirements)
+- [Installation](#installation)
+  - [Download](#download)
+  - [Flash](#flash)
+  - [Initial Boot](#initial-boot-on-the-rpi)
+  - [RPi Network Connection](#rpi-network-connection)
+  - [Initial Login](#initial-login)
+  - [Basic Configuration Modification](#basic-configuration-modification)
+- [Install Additional Core Software](#install-additional-core-software)
+  - [Local dot files](#install-local-dot-files)
+  - [SSH authorized users](#install-ssh-authorized-users)
+- [Additional Packages](#additional-packages)
+  - [Magit](#install-magit)
+  - [Python packages](#install-python-packages)
+  - [Download TagNet/TagTools source trees](#download-tagnettagtools-source-trees)
+  - [Install TagNet/TagTools](#install-tagnettagtools)
+- [Additional Docs](#additional-docs)
+
+----
+
+## Introduction
 
 A TagNet base station (TBS) is hosted on a Raspberry Pi running the ComitUp
 variant of the Raspberry Pi OS (RPiOS).  This is a Debian based Linux
@@ -35,7 +58,7 @@ For TBS use, a Pi 3 or 4 is required.
 >
 
 
-## ComitUp Overview
+### ComitUp Overview
 
 ComitUp can be found at:
 
@@ -54,7 +77,7 @@ installed.   A future combined image may be constructed that will include all th
 software.
 
 
-## Installation Requirements
+### Installation Requirements
 
 Installation requires the following:
 
@@ -107,7 +130,7 @@ flash the image using Etcher
     > This can take some time.
 
 
-### Connect the RPi to your local network
+### RPi Network Connection
 
 The new RPi needs to be connected to your local network to perform additional
 configuration.  This can be accomplished by connecting to a physical Ethernet or
@@ -162,7 +185,7 @@ password ```raspberry```.
     pi@comitup-596:~ $
 ```
 
-### Modifying Basic Configuration
+### Basic Configuration Modification
 
 The initial configuration needs to be modified.  Headless instances need to be modified via the
 command line.  RPiOS provides a text based GUI to make these modifications.
@@ -322,7 +345,7 @@ These packages are required by TagNet BaseStation applications.
     # sudo pip install RPi.GPIO      # already installed by comitup
 ```
 
-#### Download source trees for TagNet and Tag tools
+#### Download TagNet/TagTools source trees
 ```
     cd ~/tag
     git clone -o mm https://github.com/MamMark/mm.git
@@ -341,7 +364,7 @@ Work in progress can be found at the following repositories/branches:
     git checkout -t cire/cire_working
 ```
 
-#### Install TagNet and Tag Tools
+#### Install TagNet/TagTools
 ``` bash
     cd ~/tag/TagNet
     for d in si446x tagnet tagfuse; do
@@ -360,7 +383,7 @@ Work in progress can be found at the following repositories/branches:
 
 --------
 
-### Additional documentation
+### Additional Docs
 
 - [03_HOWTO_Misc](./03_HOWTO_Misc.md) for other things you might want to do including:
 
