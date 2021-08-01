@@ -362,7 +362,7 @@ Work in progress can be found at the following repositories/branches:
 
 ### Additional documentation
 
-- [03_HOWTO_Misc](./03_HOWTO.md) for other things you might want to do including:
+- [03_HOWTO_Misc](./03_HOWTO_Misc.md) for other things you might want to do including:
 
   - initial connection to a wifi network (comitup)
   - cross mounting filesystems (remote filesystem mounts)
