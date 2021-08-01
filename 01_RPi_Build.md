@@ -360,9 +360,20 @@ Work in progress can be found at the following repositories/branches:
 
 --------
 
+### Additional documentation
 
+- [03_HOWTO_Misc](./03_HOWTO.md) for other things you might want to do including:
 
+  - initial connection to a wifi network (comitup)
+  - cross mounting filesystems (remote filesystem mounts)
+  - network attached storage
+  - direct ether connect
 
+- [04_HOWTO_Tagfuse](./04_HOWTO_Tagfuse.md) for a quick start in using TagFuse, the
+  TagNet/Tag filesystem.
 
+- [05_HOWTO_Jupyter](./05_HOWTO_Jupyter.md) for a quick start to using the Jupyter
+  based pyton platform.  
+  An excellent development tool.
 
 ----
