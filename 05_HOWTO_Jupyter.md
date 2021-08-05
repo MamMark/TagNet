@@ -44,14 +44,14 @@ See [Notebook Descriptions](#notebook-descriptions) for details.
 ```
 
 There is a pre-configured jupyter configuration file in the TagNet repository
-```tag/TagNet/jupyter/jupyter_noteboot_config.py```.  It may be out of date.
+```tag/TagNet/jupyter_noteboot_config.py```.  It may be out of date.
 
 To use the pre-configured jupyter configuration do the following:
 ```
     # assumes that the TagNet repository has been installed in ~/tag
     cd ~        # cd to pi's home directory
     mkdir .jupyter
-    cp tag/TagNet/jupyter/jupyter_noteboot_config.py ~/.jupyter
+    cp tag/TagNet/jupyter_noteboot_config.py ~/.jupyter
 ```
 
 Alternatively, you can regenerate a configuration file by excuting:
