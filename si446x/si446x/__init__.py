@@ -24,7 +24,8 @@ print('Si446x Driver Version: {}'.format(__version__))
 
 try:
     from si446xcfg    import wds_config_count, wds_config_str, get_name_wds, get_ids_wds, get_config_wds, get_config_device, wds_default_config, set_real_time
-except ImportError:
+except ImportError as e:
+    print('ImportError {}'.format(e))
     print('si446x radio configuration shared module needs to be built')
     sys.exit(1)
 
