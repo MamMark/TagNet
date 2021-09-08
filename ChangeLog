@@ -1,0 +1,10 @@
+2021-09-08    <cire831@gmail.com>
+
+	* tagfuse/tagfuse/tagfuseargs.py:
+	when tagfuse is installed as develop (in place), rather than as a
+	full install, global_args (an argparse namespace) doesn't get
+	initialized.  For some reason process_cmd_args() isn't getting called.
+
+	Add code in get_cmd_args() to check global_args and if None then force
+	process_cmd_args() to get called which will process any arguments
+	and set up global_args appropriately.

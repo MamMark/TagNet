@@ -211,4 +211,7 @@ def process_cmd_args():
 
 def get_cmd_args():
     global global_args
+
+    if global_args == None:
+        process_cmd_args()
     return global_args
