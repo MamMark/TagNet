@@ -14,6 +14,7 @@ try:
 except RuntimeError as e:
     gpio_enabled = False
     print(e)
+    print('RPi.GPIO disabled')
 
 from si446xdef import *
 from si446xcfg import get_config_wds, get_config_device, set_real_time
