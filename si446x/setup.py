@@ -41,7 +41,7 @@ setup(
     maintainer_email = 'cire831@gmail.com',
     install_requires = ['future',
                         'machinist',
-                        'twisted==13.1.0',
+                        'twisted==22.1.0',
                         'six',
                         'construct==2.5.2',
                         'txdbus==1.1.0',
